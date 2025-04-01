@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Listar Pedidos - Pizzaria</title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
 <h2>Lista de Pedidos</h2>
-
-<div th:if="${mensagem}" class="mensagem-sucesso">
-    <span th:text="${mensagem}"></span>
-</div>
 
 <table>
     <thead>

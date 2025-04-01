@@ -18,6 +18,12 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    // Mapeamento para a raiz (/)
+    @GetMapping("/")
+    public String redirectToInicio() {
+        return "redirect:/clientes/inicio";
+    }
+
     // Página inicial: escolha entre "Novo Cliente" ou "Cliente Existente"
     @GetMapping("/inicio")
     public String inicio() {
