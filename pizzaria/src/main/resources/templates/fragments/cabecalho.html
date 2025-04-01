@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzaria</title>
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body>
+<header th:fragment="cabecalho">
+    <h1>Sistema de Pedidos - Pizzaria</h1>
+    <nav>
+        <a href="/clientes/inicio">Início</a> |
+        <a href="/clientes/novo">Novo Cliente</a> |
+        <a href="/clientes/buscar">Buscar Cliente</a> |
+        <a href="/clientes/listar">Listar Clientes</a> |
+        <a href="/pedidos/novo">Novo Pedido</a> |
+        <a href="/pedidos/listar">Listar Pedidos</a>
+    </nav>
+    <hr>
+</header>
+</body>
+</html>

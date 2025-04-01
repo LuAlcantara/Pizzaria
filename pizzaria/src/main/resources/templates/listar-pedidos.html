@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Pedidos - Pizzaria</title>
+</head>
+<body>
+<div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
+
+<h2>Lista de Pedidos</h2>
+
+<div th:if="${mensagem}" class="mensagem-sucesso">
+    <span th:text="${mensagem}"></span>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Sabor da Pizza</th>
+        <th>Data e Hora</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pedido : ${pedidos}">
+        <td th:text="${pedido.id}"></td>
+        <td th:text="${pedido.cliente != null} ? ${pedido.cliente.nomeCompleto} : 'Cliente não encontrado'"></td>
+        <td th:text="${pedido.saborPizza}"></td>
+        <td th:text="${#temporals.format(pedido.dataHora, 'dd/MM/yyyy HH:mm:ss')}"></td>
+        <td>
+            <a th:href="@{/pedidos/editar/{id}(id=${pedido.id})}">Editar</a> |
+            <a th:href="@{/pedidos/excluir/{id}(id=${pedido.id})}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:replace="~{fragments/rodape :: rodape}"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cliente - Pizzaria</title>
+</head>
+<body>
+<div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
+
+<h2 th:text="${cliente.id != null} ? 'Editar Cliente' : 'Novo Cliente'"></h2>
+<form th:action="@{/clientes/salvar}" th:object="${cliente}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <label for="nomeCompleto">Nome Completo:</label>
+    <input type="text" id="nomeCompleto" th:field="*{nomeCompleto}" required>
+    <span th:if="${#fields.hasErrors('nomeCompleto')}" th:errors="*{nomeCompleto}" style="color: red;"></span>
+    <br>
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" th:field="*{endereco}" required>
+    <span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}" style="color: red;"></span>
+    <br>
+
+    <label for="numeroCelular">Número de Celular:</label>
+    <input type="text" id="numeroCelular" th:field="*{numeroCelular}" required>
+    <span th:if="${#fields.hasErrors('numeroCelular')}" th:errors="*{numeroCelular}" style="color: red;"></span>
+    <br>
+
+    <button type="submit">Salvar</button>
+</form>
+<p th:if="${mensagem}" th:text="${mensagem}" style="color: red;"></p>
+
+<div th:replace="~{fragments/rodape :: rodape}"></div>
+</body>
+</html>
