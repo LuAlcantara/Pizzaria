@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizzaria</title>
-    <link rel="stylesheet" href="/static/css/estilo.css">
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <header th:fragment="cabecalho">
-    <h1>Sistema de Pedidos - Pizzaria</h1>
+    <h1 th:text="#{label.system.title}"></h1>
     <nav>
-        <a href="/clientes/inicio">Início</a> |
-        <a href="/clientes/novo">Novo Cliente</a> |
-        <a href="/clientes/buscar">Buscar Cliente</a> |
-        <a href="/clientes/listar">Listar Clientes</a> |
-        <a href="/pedidos/novo">Novo Pedido</a> |
-        <a href="/pedidos/listar">Listar Pedidos</a>
+        <a th:href="@{/clientes/inicio}" th:text="#{label.nav.home}"></a> |
+        <a th:href="@{/clientes/novo}" th:text="#{label.nav.new.client}"></a> |
+        <a th:href="@{/clientes/buscar}" th:text="#{label.nav.search.client}"></a> |
+        <a th:href="@{/clientes/listar}" th:text="#{label.nav.list.clients}"></a> |
+        <a th:href="@{/pedidos/novo}" th:text="#{label.nav.new.order}"></a> |
+        <a th:href="@{/pedidos/listar}" th:text="#{label.nav.list.orders}"></a>
     </nav>
     <hr>
 </header>

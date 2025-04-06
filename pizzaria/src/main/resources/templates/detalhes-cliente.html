@@ -2,17 +2,24 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes do Cliente - Pizzaria</title>
+    <title th:text="#{label.client.details}"></title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
-<h2>Detalhes do Cliente</h2>
-<p><strong>Nome:</strong> <span th:text="${cliente.nomeCompleto}"></span></p>
-<p><strong>Endereço:</strong> <span th:text="${cliente.endereco}"></span></p>
-<p><strong>Número de Celular:</strong> <span th:text="${cliente.numeroCelular}"></span></p>
-<a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar Cliente</a> |
-<a th:href="@{/pedidos/novo}">Fazer Pedido</a>
+<h2 th:text="#{label.client.details}"></h2>
+
+<div>
+    <p><strong th:text="#{label.full.name}"></strong> <span th:text="${cliente.nomeCompleto}"></span></p>
+    <p><strong th:text="#{label.address}"></strong> <span th:text="${cliente.endereco}"></span></p>
+    <p><strong th:text="#{label.phone.number}"></strong> <span th:text="${cliente.numeroCelular}"></span></p>
+</div>
+
+<div>
+    <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}" th:text="#{label.action.edit}"></a> |
+    <a th:href="@{/clientes/excluir/{id}(id=${cliente.id})}" th:text="#{label.action.delete}" onclick="return confirm('Tem certeza que deseja excluir?')"></a>
+</div>
 
 <div th:replace="~{fragments/rodape :: rodape}"></div>
 </body>

@@ -2,15 +2,19 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Início - Pizzaria</title>
+    <title th:text="#{label.system.title}"></title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
-<h2>Bem-vindo ao Sistema de Pedidos</h2>
-<p>Escolha uma opção:</p>
-<a href="/clientes/novo">Novo Cliente</a> |
-<a href="/clientes/buscar">Cliente Existente</a>
+<h2 th:text="#{label.welcome.message}"></h2>
+<p th:text="#{label.choose.option}"></p>
+
+<nav>
+    <a th:href="@{/clientes/novo}" th:text="#{label.nav.new.client}"></a> |
+    <a th:href="@{/clientes/buscar}" th:text="#{label.existing.client}"></a>
+</nav>
 
 <div th:replace="~{fragments/rodape :: rodape}"></div>
 </body>

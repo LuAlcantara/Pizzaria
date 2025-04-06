@@ -8,16 +8,16 @@
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
-<h2>Lista de Pedidos</h2>
+<h2 th:text="#{label.orders.list}"></h2>
 
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Sabor da Pizza</th>
-        <th>Data e Hora</th>
-        <th>Ações</th>
+        <th th:text="#{label.table.id}"></th>
+        <th th:text="#{label.table.client}"></th>
+        <th th:text="#{label.table.pizza.flavor}"></th>
+        <th th:text="#{label.table.date.time}"></th>
+        <th th:text="#{label.table.actions}"></th>
     </tr>
     </thead>
     <tbody>
@@ -27,8 +27,8 @@
         <td th:text="${pedido.saborPizza}"></td>
         <td th:text="${#temporals.format(pedido.dataHora, 'dd/MM/yyyy HH:mm:ss')}"></td>
         <td>
-            <a th:href="@{/pedidos/editar/{id}(id=${pedido.id})}">Editar</a> |
-            <a th:href="@{/pedidos/excluir/{id}(id=${pedido.id})}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+            <a th:href="@{/pedidos/editar/{id}(id=${pedido.id})}" th:text="#{label.action.edit}"></a> |
+            <a th:href="@{/pedidos/excluir/{id}(id=${pedido.id})}" th:text="#{label.action.delete}" onclick="return confirm('Tem certeza que deseja excluir?')"></a>
         </td>
     </tr>
     </tbody>

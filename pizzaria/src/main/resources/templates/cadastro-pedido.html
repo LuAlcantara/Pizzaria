@@ -2,12 +2,13 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Pedido - Pizzaria</title>
+    <title th:text="#{label.order.register}"></title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
-<h2>Cadastro de Pedido</h2>
+<h2 th:text="#{label.order.register}"></h2>
 
 <div th:if="${mensagem}" class="mensagem-erro">
     <span th:text="${mensagem}"></span>
@@ -15,18 +16,18 @@
 
 <form th:action="@{/pedidos/salvar}" th:object="${pedido}" method="post">
     <div>
-        <label>Cliente:</label>
-        <span th:text="${pedido.cliente != null} ? ${pedido.cliente.nomeCompleto} : 'Cliente não encontrado'"></span>
+        <label th:text="#{label.order.client}"></label>
+        <span th:text="${pedido.cliente != null} ? ${pedido.cliente.nomeCompleto} : #{message.client.not.found}"></span>
         <input type="hidden" th:field="*{cliente.id}" />
     </div>
 
     <div>
-        <label for="saborPizza">Sabor da Pizza:</label>
+        <label for="saborPizza" th:text="#{label.order.pizza.flavor}"></label>
         <input type="text" id="saborPizza" th:field="*{saborPizza}" />
         <span th:if="${#fields.hasErrors('saborPizza')}" th:errors="*{saborPizza}" class="mensagem-erro"></span>
     </div>
 
-    <button type="submit">Salvar</button>
+    <button type="submit" th:text="#{label.button.save}"></button>
 </form>
 
 <div th:replace="~{fragments/rodape :: rodape}"></div>

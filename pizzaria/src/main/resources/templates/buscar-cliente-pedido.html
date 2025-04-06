@@ -2,18 +2,25 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Buscar Cliente para Pedido - Pizzaria</title>
+    <title th:text="#{label.search.client.order}"></title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
 <div th:replace="~{fragments/cabecalho :: cabecalho}"></div>
 
-<h2>Buscar Cliente para Registrar Pedido</h2>
+<h2 th:text="#{label.search.client.order}"></h2>
+
+<div th:if="${mensagem}" class="mensagem-erro">
+    <span th:text="${mensagem}"></span>
+</div>
+
 <form th:action="@{/pedidos/buscar-cliente}" method="post">
-    <label for="numeroCelular">Número de Celular:</label>
-    <input type="text" id="numeroCelular" name="numeroCelular" th:value="${numeroCelular}">
-    <button type="submit">Buscar</button>
+    <div>
+        <label for="numeroCelular" th:text="#{label.phone.number}"></label>
+        <input type="text" id="numeroCelular" name="numeroCelular" th:value="${numeroCelular}" />
+    </div>
+    <button type="submit" th:text="#{label.button.search}"></button>
 </form>
-<p th:if="${mensagem}" th:text="${mensagem}" style="color: red;"></p>
 
 <div th:replace="~{fragments/rodape :: rodape}"></div>
 </body>
