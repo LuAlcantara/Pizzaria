@@ -1,90 +1,194 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffcb;
+    padding: 20px;
 }
-h1, h2 {
-    color: #333;
+
+/* Header arredondado */
+header {
+    background-color: #840007;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px auto;
+    max-width: 1000px;
 }
+
+/* Logo */
+header .logo {
+    height: 60px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Navegação com links estilo botão */
 nav a {
-    margin-right: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #ffffcb;
+    color: #0b6906;
+    border: 2px solid #0b6906;
+    border-radius: 50px;
     text-decoration: none;
-    color: #007bff;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 nav a:hover {
-    text-decoration: underline;
+    background-color: #0b6906;
+    color: #ffffcb;
+    font: bold;
 }
+
+/* Títulos */
+h1, h2 {
+    color: #0b6906;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Texto "Choose an option" estilizado */
+.opcao-container p {
+    color: #0b6906;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Botões da opção */
+.botoes-opcao {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.botoes-opcao a {
+    padding: 10px 20px;
+    border: 2px solid #0b6906;
+    border-radius: 50px;
+    background-color: #ffffcb;
+    color: #0b6906;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botoes-opcao a:hover {
+    background-color: #0b6906;
+    color: #ffffcb;
+}
+
+/* Tabela */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-th, td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 th {
-    background-color: #007bff;
+    background-color: #0b6906;
     color: white;
-    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+}
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
 }
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 tr:hover {
-    background-color: #e9ecef;
+    background-color: #ffeaea;
 }
+
+/* Estilo dos botões de ação na tabela (editar/excluir) */
+td a {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #ffffcb;
+    color: #0b6906;
+    border: 2px solid #0b6906;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0 5px;
+}
+
+td a:hover {
+    background-color: #0b6906;
+    color: #ffffcb;
+}
+
+/* Formulário */
 form {
-    margin-top: 20px;
-    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 600px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 label {
+    font-weight: bold;
     display: block;
     margin-top: 10px;
-    font-weight: bold;
 }
-input[type="text"] {
+input[type="text"],
+input[type="email"] {
     width: 100%;
-    max-width: 300px;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+/* Botões padrão */
 button {
-    margin-top: 15px;
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: white;
+    background-color: #0b6906;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
     border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #094f04;
 }
-footer {
-    margin-top: 30px;
-    text-align: center;
-    color: #666;
-    font-size: 0.9em;
-}
+
+/* Mensagens */
 .mensagem-sucesso {
     color: #28a745;
-    margin-bottom: 15px;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 .mensagem-erro {
     color: #dc3545;
-    font-size: 0.9em;
     margin-top: 5px;
 }
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+
+/* Rodapé */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    padding: 15px 0;
 }
