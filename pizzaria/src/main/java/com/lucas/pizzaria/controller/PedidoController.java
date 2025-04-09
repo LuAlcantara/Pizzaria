@@ -35,6 +35,19 @@ public class PedidoController {
         return "buscar-cliente-pedido";
     }
 
+    @GetMapping("/novo/cliente/{id}")
+    public String mostrarFormularioPedidoPorCliente(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+        Optional<Cliente> clienteOpt = clienteRepository.findById(id);
+        if (clienteOpt.isPresent()) {
+            Pedido pedido = new Pedido();
+            pedido.setCliente(clienteOpt.get());
+            model.addAttribute("pedido", pedido);
+            return "cadastro-pedido";
+        }
+        redirectAttributes.addFlashAttribute("mensagem", "Cliente não encontrado!");
+        return "redirect:/clientes/inicio";
+    }
+
     @PostMapping("/buscar-cliente")
     public String buscarClienteParaPedido(@RequestParam String numeroCelular, Model model) {
         Optional<Cliente> clienteOpt = clienteRepository.findByNumeroCelular(numeroCelular);
